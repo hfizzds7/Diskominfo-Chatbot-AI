@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>
+    Fasilitas</title>
+<link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+<link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="stylesheet" href="https://sampahkita.jabarprov.go.id/assets/vendor/libs/datatables/css/dataTables.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<link href="/assets/css/app.css?id=675ba3deafb1e908ef1fb59e9cb0508a" rel="stylesheet">
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="/assets/js/app.js?id=741a8d6c00bacc73b3cbef97c54727a0" defer></script>
+  </head>
+
+<body class="bg-white" x-data="{ loaded: true }">
+
+  <div x-show="loaded" x-init="window.addEventListener('DOMContentLoaded', () => { setTimeout(() => loaded = false, 500) })"
+    class="fixed top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-center w-full h-screen gap-2 bg-white custom-loading"
+    style="height: 100vh; width: 100vw; z-index: 100;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 128 128" fill="none">
+        <g clip-path="url(#clip0_1243_36802)">
+            <rect x="0.5" y="0.5" width="127" height="127" rx="63.5" fill="#16A75C" />
+            <circle cx="66.1703" cy="92.4079" r="65.1711" fill="#108F5A" />
+        </g>
+        <defs>
+            <clipPath id="clip0_1243_36802">
+                <rect x="0.5" y="0.5" width="127" height="127" rx="63.5" fill="white" />
+            </clipPath>
+        </defs>
+    </svg>
+    <span class="text-lg">Loading...</span>
+</div>
+
+  <header class="fixed top-0 z-50 w-screen">
+    <nav class="bg-white border-gray-200 shadow-sm">
+        <div
+            class="flex flex-wrap items-center justify-between p-4 mx-auto 2xl:max-w-screen-2xl xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md">
+                        <a href="https://sampahkita.jabarprov.go.id" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span style="width: 150px; height: 50px; display: inline-flex;">
+                    <img src="https://sampahkita.jabarprov.go.id/assets/icons/logo.svg" alt="SampahKita logo"
+                        style="object-fit: contain; width: 100%; height: 100%;">
+                </span>
+                <span class="sr-only">SampahKita</span>
+            </a>
+            <button data-collapse-toggle="navbar-default" type="button"
+                class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full lg:block lg:w-auto" id="navbar-default">
+                <ul
+                    class="flex flex-col gap-5 p-4 mt-4 text-sm font-medium border border-gray-100 rounded-lg lg:p-0 bg-gray-50 lg:flex-row lg:space-x-8 rtl:space-x-reverse lg:mt-0 lg:border-0 lg:bg-white">
+                    <li class="group">
+                        <a class="px-3 py-2 border-2 border-primary rounded-lg font-semibold text-primary flex items-center justify-center transition-all duration-300 border-transparent group-hover:bg-[#E6F6EC] group-hover:text-[#07604D] text-slate-500" href="https://sampahkita.jabarprov.go.id" aria-current="page">
+    Beranda
+</a>                    </li>
+                    
+                    <li class="group">
+                        <a class="px-3 py-2 border-2 border-primary rounded-lg font-semibold text-primary flex items-center justify-center transition-all duration-300 border-transparent group-hover:bg-[#E6F6EC] group-hover:text-[#07604D] text-slate-500" href="https://sampahkita.jabarprov.go.id/fasilitas">
+    Sumber
+                            Sampah & Fasilitas
+</a>                    </li>
+                    <li class="group">
+                        <a class="px-3 py-2 border-2 border-primary rounded-lg font-semibold text-primary flex items-center justify-center transition-all duration-300 border-transparent group-hover:bg-[#E6F6EC] group-hover:text-[#07604D] text-slate-500" href="https://sampahkita.jabarprov.go.id/statistik">
+    Monitoring
+</a>                    </li>
+                    <li class="group">
+                        <a class="px-3 py-2 border-2 border-primary rounded-lg font-semibold text-primary flex items-center justify-center transition-all duration-300 border-transparent group-hover:bg-[#E6F6EC] group-hover:text-[#07604D] text-slate-500" href="https://sampahkita.jabarprov.go.id/kinerja">
+    Kinerja
+                            Wilayah
+</a>                    </li>
+                    <li class="group">
+                        <a class="px-3 py-2 border-2 border-primary rounded-lg font-semibold text-primary flex items-center justify-center transition-all duration-300 border-transparent group-hover:bg-[#E6F6EC] group-hover:text-[#07604D] text-slate-500 text-slate-500" href="https://sampahkita.jabarprov.go.id/circular-economy">
+    Circular
+                            Economy
+</a>                    </li>
+                    
+                    <li class="block lg:hidden">
+                                                                            <a class="px-3 py-2 border-2 border-primary rounded-lg font-semibold text-primary flex items-center justify-center transition-all duration-300 text-sm" href="https://sampahkita.jabarprov.go.id/login">
+    Masuk
+</a>                                            </li>
+                </ul>
+            </div>
+            <div class="hidden lg:flex lg:items-center lg:justify-center">
+                                                    <a class="px-3 py-2 border-2 border-primary rounded-lg font-semibold text-primary flex items-center justify-center transition-all duration-300 text-sm w-[200px] lg:w-auto" href="https://sampahkita.jabarprov.go.id/login">
+    Masuk
+</a>                            </div>
+        </div>
+    </nav>
+</header>
+
+  <main>
+    <section class="py-10 mt-16">
+        <div class="max-w-screen-xl p-4 mx-auto">
+            <div class="" data-aos="fade-up"
+     data-aos-duration="500"
+     data-aos-delay="300"
+     data-aos-offset="0"
+     >
+    <div class="flex items-center gap-3">
+                    <img src="https://sampahkita.jabarprov.go.id/assets/images/ellipse-gradient.png" alt="" class="w-6">
+                    <h3 class="text-sm font-bold text-primary lg:text-md">Fasilitas</h3>
+                </div>
+
+                <h1 class="mt-5 text-xl font-semibold lg:text-3xl">
+                    <br />
+                </h1>
+</div>  	<iframe width="1200" height="700" src="https://lookerstudio.google.com/embed/reporting/7c53fb17-3ded-4c5e-94e8-8b21ef23f40e/page/p_wbsbf0o3ld" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        </div>
+    </section>
+
+    <section class="relative h-auto mt-10">
+        <div class="relative w-full h-full px-5 mx-auto lg:px-0 xl:max-w-screen-xl -mb-14 lg:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm">
+            <div class="flex flex-col items-start justify-between gap-5 p-8 bg-center bg-cover rounded-lg lg:items-center bg-primary lg:flex-row"
+                style="background-image: url('https://sampahkita.jabarprov.go.id/assets/images/motif.png')">
+                <h1 class="max-w-md text-xl font-semibold text-white lg:text-2xl">
+                    Satukan langkah, Kuatkan Kolaborasi,
+                    Kelola sampah dari hulu sampai hilir
+                    bersama Sampah Kita.
+                </h1>
+
+                <button class="px-5 py-3 font-semibold rounded-lg bg-[#FFD026] text-gray-900 flex items-center gap-2 hover:bg-[#d3ba5f]">
+                    Daftar sekarang
+                    <i class="uil uil-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        <div class="w-screen h-20 bg-[#0B7855]"></div>
+    </section>
+  </main>
+
+  <div id="scroll-to-top"
+    class="fixed bottom-5 right-5 w-16 h-16 rounded-full border-4 border-[#cffad2] bg-primary flex justify-center items-center cursor-pointer opacity-0 transition-opacity duration-300"
+    style="z-index: 60">
+    <i class="text-2xl text-white uil uil-envelope-alt"></i>
+</div>
+
+  
+  <footer class="bg-[#0B7855] relative z-20">
+  <div class="w-full h-full p-4 mx-auto lg:p-0 xl:max-w-screen-xl lg:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm">
+    <div class="flex items-start justify-between py-20 border-b-[1px] border-line-color/20 flex-col lg:flex-row gap-10">
+      <div class="max-w-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="178" height="40" viewBox="0 0 178 40" fill="none" class="w-40 h-16">
+<path d="M3 21.0017L16.8503 28.142L17.3725 28.4111C18.3363 28.908 19.5256 28.908 20.4894 28.4111L34.8619 21.0017V12.7896C34.8619 12.7896 34.8573 12.7919 34.8458 12.7988L34.8343 12.8034C34.8274 12.8057 34.8205 12.8103 34.8136 12.8149L26.8959 16.8956L21.1151 19.8746L20.4894 20.1966C20.4733 20.2035 20.4595 20.2127 20.4434 20.2196C19.4865 20.6935 18.3202 20.6866 17.3702 20.1966L16.7445 19.8746L10.9638 16.8956L3 21.0017Z" fill="#009258"/>
+<path d="M20.9518 4.48997C19.6843 3.83668 18.1799 3.83668 16.9101 4.48997L13.3055 6.34864L11.7482 7.15146C11.7459 7.15146 11.7459 7.15376 11.7436 7.15376L9.49614 8.31312L8.66572 8.74099L5.39005 10.4294C3.92243 11.1862 3 12.6976 3 14.3492V19.8746L10.9661 15.7685L15.9256 13.2128L17.4001 12.4537C18.3708 11.9523 19.5233 11.9592 20.4917 12.4675L21.7155 13.0978L26.9005 15.7708L34.8665 11.6647L20.9518 4.48997Z" fill="#1AA9E1"/>
+<path d="M22.5249 28.4895L20.4868 29.5407C19.5091 30.0445 18.3498 30.0445 17.3721 29.5384L17.3468 29.5246C16.9029 29.2969 15.4652 28.5539 13.6594 27.6245C13.3028 27.4405 12.944 27.2565 12.5874 27.0725L12.1297 26.8355C11.6719 26.6009 11.2187 26.3663 10.7725 26.1362L10.4757 25.9821C10.3285 25.9062 10.1813 25.8303 10.0341 25.7544L9.70743 25.5865C9.64302 25.5542 9.58091 25.522 9.5165 25.4875C9.39918 25.4277 9.28417 25.3679 9.16915 25.3081L8.90461 25.1724C8.89311 25.1655 8.87931 25.1586 8.86781 25.154L8.61017 25.0206C8.47215 24.9493 8.33413 24.8779 8.20071 24.8089L7.93157 24.6709C7.75444 24.5789 7.57962 24.4892 7.40709 24.4018L7.29668 24.3443C7.28057 24.3351 7.26447 24.3282 7.24607 24.319C7.02524 24.204 6.80671 24.0935 6.59738 23.9854L6.41795 23.8934C6.37884 23.8727 6.33974 23.852 6.30063 23.8336L6.18562 23.7738C6.1097 23.7347 6.03379 23.6956 5.96018 23.6565L5.84977 23.599C5.83136 23.5898 5.81296 23.5806 5.79456 23.5714L5.68644 23.5162C5.66804 23.507 5.64964 23.4978 5.63353 23.4886L5.52772 23.4333C5.49321 23.4149 5.45871 23.3965 5.42421 23.3804L5.32069 23.3275C5.16887 23.2493 5.02165 23.1734 4.88133 23.1021L4.78931 23.0538C4.75941 23.0377 4.7295 23.0216 4.6996 23.0078L4.64899 22.9825C4.61449 22.9641 4.57998 22.9457 4.54548 22.9296C4.52017 22.9158 4.49257 22.902 4.46727 22.8882L4.40056 22.8537C4.32234 22.8146 4.25103 22.7777 4.17972 22.7409C3.72886 22.5086 3.39071 22.3338 3.19518 22.2326C3.14687 22.2073 3.11007 22.1889 3.08016 22.1728C3.03416 22.1498 3.00195 22.1313 3.00195 22.1313V27.6568C3.00195 29.3084 3.92439 30.8197 5.392 31.5765L16.9144 37.516C18.1819 38.1693 19.6886 38.1693 20.9561 37.516L32.4784 31.5765C33.946 30.8197 34.8685 29.3084 34.8685 27.6568V22.1313L22.5249 28.4895Z" fill="#FFC535"/>
+<path d="M53.43 14.4009C53.315 14.585 53.193 14.723 53.0665 14.815C52.94 14.907 52.7767 14.953 52.5789 14.953C52.4017 14.953 52.2131 14.8978 52.0107 14.7851C51.8082 14.6747 51.5782 14.5504 51.3206 14.4124C51.0629 14.2744 50.7708 14.1502 50.4395 14.0398C50.1106 13.9294 49.7333 13.8718 49.3124 13.8718C48.5832 13.8718 48.0426 14.0283 47.686 14.3365C47.3295 14.6471 47.1501 15.068 47.1501 15.5971C47.1501 15.9352 47.2582 16.2136 47.4721 16.4367C47.686 16.6598 47.969 16.8508 48.3186 17.0118C48.6683 17.1728 49.0662 17.32 49.5148 17.4535C49.9634 17.5869 50.4211 17.7364 50.8904 17.902C51.3574 18.0677 51.8151 18.2609 52.2637 18.484C52.7123 18.7071 53.1102 18.9901 53.4599 19.3351C53.8095 19.6802 54.0902 20.0988 54.3041 20.5934C54.518 21.088 54.6261 21.6838 54.6261 22.3831C54.6261 23.1583 54.4927 23.8829 54.2236 24.5569C53.9544 25.2309 53.5657 25.8198 53.055 26.3236C52.5443 26.8273 51.9164 27.2207 51.1687 27.5082C50.4211 27.7958 49.5723 27.9407 48.62 27.9407C48.0978 27.9407 47.5687 27.8878 47.0281 27.7797C46.4876 27.6715 45.9654 27.522 45.457 27.3265C44.9509 27.131 44.4748 26.8986 44.0308 26.6295C43.5868 26.3604 43.1981 26.0613 42.8691 25.7324L44.0193 23.9151C44.1113 23.784 44.2332 23.6759 44.3828 23.5885C44.5323 23.501 44.6956 23.455 44.8704 23.455C45.1005 23.455 45.3328 23.5286 45.5674 23.6736C45.8021 23.8185 46.0666 23.9795 46.361 24.1566C46.6555 24.3338 46.9959 24.4948 47.3778 24.6397C47.762 24.7846 48.2128 24.8582 48.735 24.8582C49.4412 24.8582 49.9887 24.7018 50.3797 24.3913C50.7708 24.0807 50.9663 23.5885 50.9663 22.9145C50.9663 22.5234 50.8582 22.206 50.6443 21.9598C50.4303 21.7137 50.1474 21.5113 49.7977 21.3502C49.4481 21.1892 49.0524 21.0466 48.6085 20.9247C48.1645 20.8027 47.7067 20.667 47.2398 20.5175C46.7728 20.368 46.315 20.184 45.8711 19.9654C45.4271 19.7469 45.0292 19.4594 44.6795 19.1028C44.3299 18.7462 44.0492 18.3023 43.8353 17.7686C43.6214 17.2349 43.5132 16.577 43.5132 15.7949C43.5132 15.1669 43.6398 14.5527 43.8928 13.9547C44.1458 13.3566 44.5185 12.8229 45.0085 12.3559C45.4984 11.889 46.1011 11.514 46.8142 11.2334C47.5273 10.9527 48.3439 10.8147 49.2641 10.8147C49.777 10.8147 50.2785 10.8538 50.7639 10.9343C51.2516 11.0148 51.7116 11.1344 52.151 11.2909C52.588 11.4473 52.9952 11.6359 53.3771 11.8545C53.7566 12.073 54.0948 12.3191 54.3938 12.5975L53.43 14.4009Z" fill="white"/>
+<path d="M56.0866 17.4831C56.8066 16.8459 57.6071 16.3743 58.4836 16.0638C59.3623 15.7532 60.3031 15.5991 61.3084 15.5991C62.0284 15.5991 62.6794 15.7164 63.2568 15.9488C63.8364 16.1834 64.3264 16.5078 64.729 16.9264C65.1315 17.3451 65.4398 17.8419 65.656 18.417C65.8699 18.9921 65.978 19.6201 65.978 20.3033V27.7564H64.3448C64.0067 27.7564 63.7513 27.7104 63.5788 27.6184C63.4063 27.5264 63.2613 27.3354 63.1463 27.0433L62.8933 26.3877C62.5943 26.6407 62.3067 26.8639 62.0307 27.0548C61.7546 27.2457 61.4694 27.409 61.1726 27.5424C60.8759 27.6759 60.5631 27.7771 60.2295 27.8415C59.896 27.9059 59.5256 27.9381 59.1184 27.9381C58.5733 27.9381 58.0787 27.8668 57.6347 27.7265C57.1908 27.5839 56.8112 27.3745 56.503 27.1008C56.1924 26.8247 55.9532 26.482 55.7853 26.0702C55.6173 25.6608 55.5322 25.1869 55.5322 24.6509C55.5322 24.2208 55.6403 23.786 55.8543 23.3466C56.0682 22.905 56.4409 22.5024 56.9699 22.139C57.499 21.7755 58.2121 21.4696 59.1092 21.2234C60.0064 20.9773 61.1381 20.8393 62.5022 20.8094V20.3033C62.5022 19.6063 62.3596 19.1025 62.0698 18.792C61.7822 18.4814 61.3728 18.325 60.8437 18.325C60.4227 18.325 60.0777 18.371 59.8085 18.463C59.5394 18.555 59.3002 18.6586 59.0908 18.7736C58.8792 18.8886 58.6745 18.9921 58.4767 19.0841C58.2765 19.1761 58.0396 19.2221 57.7636 19.2221C57.5174 19.2221 57.3104 19.16 57.1425 19.0381C56.9745 18.9162 56.8365 18.769 56.7284 18.6011L56.0866 17.4831ZM62.5045 22.9004C61.7914 22.9303 61.2049 22.9924 60.7448 23.0844C60.2847 23.1764 59.9213 23.2914 59.6521 23.4295C59.383 23.5675 59.199 23.7239 59.0954 23.901C58.9919 24.0782 58.9413 24.2691 58.9413 24.4761C58.9413 24.8833 59.0517 25.1685 59.2749 25.3318C59.498 25.4975 59.8223 25.5803 60.2525 25.5803C60.7126 25.5803 61.1151 25.4998 61.4602 25.3387C61.8052 25.1777 62.1549 24.9178 62.5068 24.5566V22.9004H62.5045Z" fill="white"/>
+<path d="M68.2559 27.7543V15.8271H70.4642C70.9081 15.8271 71.2003 16.0272 71.3383 16.4252L71.5338 17.0693C71.734 16.8622 71.941 16.6736 72.1549 16.5011C72.3689 16.3286 72.6012 16.179 72.8519 16.0525C73.1004 15.926 73.3695 15.8271 73.657 15.7535C73.9446 15.6799 74.2597 15.6431 74.6048 15.6431C75.3248 15.6431 75.9206 15.8294 76.3921 16.1997C76.8637 16.5724 77.2226 17.067 77.4664 17.6904C77.6665 17.3223 77.9104 17.0072 78.1979 16.7472C78.4854 16.4873 78.796 16.2757 79.1295 16.1146C79.4631 15.9536 79.815 15.834 80.1877 15.7581C80.5603 15.6822 80.9307 15.6431 81.2988 15.6431C81.982 15.6431 82.5869 15.7443 83.116 15.9467C83.6451 16.1491 84.0868 16.4459 84.4433 16.8323C84.7999 17.2188 85.0713 17.695 85.2553 18.2585C85.4394 18.8221 85.5314 19.4616 85.5314 20.1747V27.7543H81.9659V20.1747C81.9659 18.9394 81.4368 18.323 80.3786 18.323C79.8956 18.323 79.4953 18.4817 79.1778 18.8014C78.8604 19.1189 78.6994 19.5789 78.6994 20.1747V27.7543H75.1339V20.1747C75.1339 19.4915 75.0004 19.0131 74.7313 18.737C74.4622 18.461 74.0688 18.323 73.5466 18.323C73.2246 18.323 72.9209 18.3966 72.6334 18.5415C72.3459 18.6864 72.0767 18.8819 71.8214 19.1281V27.7543H68.2559Z" fill="white"/>
+<path d="M91.1784 17.2992C91.6454 16.8 92.1767 16.3928 92.7702 16.0754C93.3637 15.758 94.0722 15.5969 94.8934 15.5969C95.5145 15.5969 96.0896 15.7349 96.6187 16.011C97.1478 16.287 97.6032 16.685 97.9874 17.2072C98.3715 17.7293 98.6706 18.3665 98.8891 19.121C99.1076 19.8755 99.2158 20.7336 99.2158 21.6928C99.2158 22.5899 99.0915 23.4181 98.8431 24.1772C98.5947 24.9363 98.245 25.5965 97.7965 26.1555C97.3479 26.7144 96.8119 27.1515 96.1862 27.4666C95.5605 27.7818 94.8681 27.9382 94.109 27.9382C93.4879 27.9382 92.9657 27.8508 92.5448 27.6737C92.1238 27.4966 91.7397 27.2596 91.3946 26.9606V31.5382H87.8291V15.827H90.0374C90.4814 15.827 90.7735 16.0271 90.9115 16.425L91.1784 17.2992ZM91.3969 24.5107C91.6661 24.8029 91.9559 25.0099 92.271 25.1318C92.5862 25.2537 92.9151 25.3158 93.2602 25.3158C93.5891 25.3158 93.8928 25.2514 94.1688 25.1203C94.4449 24.9892 94.6841 24.7822 94.8865 24.4946C95.089 24.2071 95.25 23.8321 95.365 23.3721C95.48 22.912 95.5375 22.353 95.5375 21.6928C95.5375 21.0648 95.4915 20.5357 95.3995 20.1056C95.3075 19.6754 95.1787 19.3281 95.013 19.0635C94.8474 18.799 94.6519 18.6104 94.4219 18.4953C94.1918 18.3803 93.9342 18.3228 93.6512 18.3228C93.1291 18.3228 92.7012 18.4194 92.3631 18.6104C92.0249 18.8013 91.7029 19.0819 91.3969 19.45V24.5107Z" fill="white"/>
+<path d="M100.794 17.4831C101.514 16.8459 102.315 16.3743 103.194 16.0638C104.072 15.7532 105.013 15.5991 106.016 15.5991C106.736 15.5991 107.387 15.7164 107.967 15.9488C108.546 16.1834 109.036 16.5078 109.439 16.9264C109.841 17.3451 110.15 17.8419 110.366 18.417C110.58 18.9921 110.688 19.6201 110.688 20.3033V27.7564H109.055C108.717 27.7564 108.461 27.7104 108.289 27.6184C108.116 27.5264 107.971 27.3354 107.856 27.0433L107.603 26.3877C107.304 26.6407 107.017 26.8639 106.741 27.0548C106.465 27.2457 106.179 27.409 105.883 27.5424C105.586 27.6759 105.273 27.7771 104.939 27.8415C104.606 27.9059 104.236 27.9381 103.828 27.9381C103.283 27.9381 102.789 27.8668 102.345 27.7265C101.901 27.5862 101.523 27.3745 101.213 27.1008C100.902 26.8247 100.663 26.482 100.495 26.0702C100.327 25.6608 100.242 25.1869 100.242 24.6509C100.242 24.2208 100.35 23.786 100.564 23.3466C100.778 22.9073 101.151 22.5024 101.68 22.139C102.209 21.7755 102.922 21.4696 103.819 21.2234C104.716 20.9773 105.848 20.8393 107.212 20.8094V20.3033C107.212 19.6063 107.07 19.1025 106.78 18.792C106.492 18.4814 106.083 18.325 105.554 18.325C105.133 18.325 104.788 18.371 104.519 18.463C104.249 18.555 104.01 18.6586 103.801 18.7736C103.591 18.8886 103.384 18.9921 103.187 19.0841C102.986 19.1761 102.75 19.2221 102.474 19.2221C102.227 19.2221 102.02 19.16 101.852 19.0381C101.684 18.9162 101.546 18.769 101.438 18.6011L100.794 17.4831ZM107.212 22.9004C106.499 22.9303 105.913 22.9924 105.452 23.0844C104.992 23.1764 104.629 23.2914 104.36 23.4295C104.091 23.5675 103.907 23.7239 103.803 23.901C103.7 24.0782 103.649 24.2691 103.649 24.4761C103.649 24.8833 103.759 25.1685 103.983 25.3318C104.206 25.4975 104.53 25.5803 104.96 25.5803C105.42 25.5803 105.823 25.4998 106.168 25.3387C106.513 25.1777 106.863 24.9178 107.214 24.5566V22.9004H107.212Z" fill="white"/>
+<path d="M116.528 16.8737C116.958 16.5056 117.423 16.2089 117.927 15.9812C118.428 15.7557 119.029 15.6407 119.728 15.6407C120.379 15.6407 120.956 15.7534 121.458 15.9812C121.959 16.2066 122.385 16.5217 122.73 16.9243C123.075 17.3269 123.335 17.8053 123.512 18.362C123.689 18.9187 123.776 19.5214 123.776 20.1747V27.7543H120.211V20.1747C120.211 19.5927 120.077 19.1372 119.808 18.8129C119.539 18.4862 119.146 18.3252 118.624 18.3252C118.233 18.3252 117.867 18.408 117.526 18.5736C117.186 18.7393 116.855 18.9624 116.53 19.2453V27.7566H112.965V10.5386H116.53V16.8737H116.528Z" fill="white"/>
+<path d="M130.123 17.7823H130.744C131.319 17.7823 131.733 17.6029 131.987 17.2417L135.759 11.767C135.982 11.4748 136.221 11.2747 136.477 11.1643C136.734 11.0538 137.054 10.9963 137.436 10.9963H140.818L135.849 17.7708C135.497 18.2378 135.117 18.5759 134.71 18.783C135.002 18.8911 135.267 19.0406 135.504 19.2315C135.741 19.4225 135.964 19.6732 136.171 19.9791L141.232 27.7543H137.758C137.535 27.7543 137.346 27.7382 137.188 27.7083C137.031 27.6784 136.895 27.6324 136.78 27.5702C136.665 27.5081 136.567 27.4345 136.481 27.3448C136.396 27.2574 136.316 27.1562 136.24 27.0412L132.444 21.2098C132.306 20.9959 132.131 20.8441 131.922 20.7567C131.711 20.6692 131.425 20.6232 131.064 20.6232H130.121V27.7543H126.233V10.9963H130.121V17.7823H130.123Z" fill="white"/>
+<path d="M146.088 12.5606C146.088 12.8435 146.03 13.1104 145.915 13.3588C145.8 13.6072 145.644 13.8258 145.444 14.0144C145.244 14.203 145.011 14.3525 144.747 14.463C144.482 14.5734 144.199 14.6309 143.902 14.6309C143.61 14.6309 143.339 14.5757 143.086 14.463C142.833 14.3525 142.607 14.203 142.412 14.0144C142.216 13.8258 142.062 13.6072 141.952 13.3588C141.841 13.1104 141.786 12.8435 141.786 12.5606C141.786 12.2684 141.841 11.997 141.952 11.744C142.062 11.4909 142.216 11.2678 142.412 11.0769C142.607 10.8859 142.833 10.7364 143.086 10.6283C143.339 10.5202 143.61 10.4673 143.902 10.4673C144.201 10.4673 144.482 10.5202 144.747 10.6283C145.011 10.7364 145.244 10.8859 145.444 11.0769C145.644 11.2678 145.8 11.4909 145.915 11.744C146.03 11.997 146.088 12.2684 146.088 12.5606ZM145.72 15.8271V27.7543H142.154V15.8271H145.72Z" fill="white"/>
+<path d="M152.482 27.9382C151.914 27.9382 151.415 27.8554 150.983 27.6898C150.55 27.5242 150.184 27.2919 149.89 26.9882C149.595 26.6846 149.37 26.3188 149.216 25.891C149.062 25.4631 148.986 24.9823 148.986 24.4532V18.2884H147.974C147.79 18.2884 147.633 18.2285 147.502 18.1112C147.371 17.9916 147.307 17.8168 147.307 17.5867V16.195L149.204 15.827L149.906 12.9171C149.998 12.549 150.258 12.365 150.688 12.365H152.551V15.85H155.507V18.2884H152.551V24.2117C152.551 24.4878 152.618 24.7155 152.754 24.8972C152.89 25.0789 153.083 25.1663 153.336 25.1663C153.467 25.1663 153.575 25.1525 153.662 25.1272C153.75 25.0996 153.828 25.0697 153.892 25.0352C153.957 25.0007 154.019 24.9708 154.077 24.9432C154.134 24.9156 154.201 24.9018 154.279 24.9018C154.387 24.9018 154.472 24.9271 154.537 24.9777C154.601 25.0283 154.67 25.1065 154.739 25.2147L155.82 26.9054C155.36 27.2505 154.843 27.5081 154.267 27.6829C153.692 27.8577 153.097 27.9382 152.482 27.9382Z" fill="white"/>
+<path d="M156.784 17.4831C157.504 16.8459 158.305 16.3743 159.184 16.0638C160.062 15.7532 161.003 15.5991 162.006 15.5991C162.726 15.5991 163.377 15.7164 163.957 15.9488C164.537 16.1834 165.027 16.5078 165.429 16.9264C165.832 17.3451 166.14 17.8419 166.356 18.417C166.57 18.9921 166.678 19.6201 166.678 20.3033V27.7564H165.045C164.707 27.7564 164.452 27.7104 164.279 27.6184C164.106 27.5264 163.962 27.3354 163.847 27.0433L163.593 26.3877C163.294 26.6407 163.007 26.8639 162.731 27.0548C162.455 27.2457 162.17 27.409 161.873 27.5424C161.576 27.6759 161.263 27.7771 160.93 27.8415C160.596 27.9059 160.226 27.9381 159.819 27.9381C159.273 27.9381 158.779 27.8668 158.335 27.7265C157.891 27.5862 157.514 27.3745 157.203 27.1008C156.893 26.8247 156.653 26.482 156.485 26.0702C156.318 25.6608 156.232 25.1869 156.232 24.6509C156.232 24.2208 156.341 23.786 156.554 23.3466C156.768 22.9073 157.141 22.5024 157.67 22.139C158.199 21.7755 158.912 21.4696 159.809 21.2234C160.707 20.9773 161.838 20.8393 163.202 20.8094V20.3033C163.202 19.6063 163.06 19.1025 162.77 18.792C162.482 18.4814 162.073 18.325 161.544 18.325C161.123 18.325 160.778 18.371 160.509 18.463C160.24 18.555 160 18.6586 159.791 18.7736C159.582 18.8886 159.375 18.9921 159.177 19.0841C158.977 19.1761 158.74 19.2221 158.464 19.2221C158.218 19.2221 158.011 19.16 157.843 19.0381C157.675 18.9162 157.537 18.769 157.429 18.6011L156.784 17.4831ZM163.202 22.9004C162.489 22.9303 161.903 22.9924 161.443 23.0844C160.983 23.1764 160.619 23.2914 160.35 23.4295C160.081 23.5675 159.897 23.7239 159.793 23.901C159.69 24.0782 159.639 24.2691 159.639 24.4761C159.639 24.8833 159.75 25.1685 159.973 25.3318C160.196 25.4975 160.52 25.5803 160.95 25.5803C161.41 25.5803 161.813 25.4998 162.158 25.3387C162.503 25.1777 162.853 24.9178 163.205 24.5566V22.9004H163.202Z" fill="white"/>
+</svg>
+        <div class="mb-2 font-semibold text-white">
+          Sekretariat Satgas Pengelolaan Sampah 
+          Terpadu Jawa Barat
+        </div>
+        <div class="text-sm text-slate-200">
+          Jl. Soekarno Hatta No.628 Bandung Jawa Barat 40115
+        </div>
+      </div>
+  
+      <div>
+        <h5 class="mb-5 font-semibold text-white text-md">Menu</h5>
+        <ul class="flex flex-col gap-2 text-sm text-slate-200">
+          <li>
+            <a href="https://sampahkita.jabarprov.go.id/" class="hover:text-white">Beranda</a>
+          </li>
+  
+          <li>
+            <a href="https://sampahkita.jabarprov.go.id/fasilitas" class="hover:text-white">Sumber Sampah & Fasilitas</a>
+          </li>
+  
+          <li>
+            <a href="https://sampahkita.jabarprov.go.id/statistik" class="hover:text-white">Monitoring</a>
+          </li>
+  
+          <li>
+            <a href="https://sampahkita.jabarprov.go.id/kinerja" class="hover:text-white">Kinerja Wilayah</a>
+          </li>
+  
+          <li>
+            <a href="https://sampahkita.jabarprov.go.id/circular-economy" class="hover:text-white">Circular Economy</a>
+          </li>
+        </ul>
+      </div>
+  
+      <div>
+        <h5 class="mb-5 font-semibold text-white text-md">Info Lainnya</h5>
+        <ul class="flex flex-col gap-2 text-sm text-slate-200">
+          <li>
+            <a href="" class="hover:text-white">Daftar Regulasi</a>
+          </li>
+  
+          <li>
+            <a href="" class="hover:text-white">Tentang Kami</a>
+          </li>
+        </ul>
+      </div>
+  
+      <div>
+        <h5 class="mb-5 font-semibold text-white text-md">Ikuti Kami</h5>
+        <ul class="grid grid-cols-2 gap-2 text-slate-200">
+          <li>
+            <a href="" class="hover:text-white">Facebook</a>
+          </li>
+  
+          <li>
+            <a href="" class="hover:text-white">Youtube</a>
+          </li>
+  
+          <li>
+            <a href="" class="hover:text-white">Instagram</a>
+          </li>
+  
+          <li>
+            <a href="" class="hover:text-white">Tiktok</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="py-10">
+      <p class="text-sm text-center text-slate-200 lg:text-left">Copyright © <span id="footer-year">2024</span> SampahKita</p>
+    </div>
+  </div>
+
+  
+</footer>
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-56RBDVL1RB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-56RBDVL1RB');
+</script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        once: true
+    });
+</script>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollToTopButton = document.getElementById('scroll-to-top');
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 200) {
+                    scrollToTopButton.classList.remove('opacity-0');
+                    scrollToTopButton.classList.add('opacity-100');
+                } else {
+                    scrollToTopButton.classList.add('opacity-0');
+                    scrollToTopButton.classList.remove('opacity-100');
+                }
+            });
+
+            scrollToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"f69e986660ba4194bda0281c1431c99f","spa":2}' crossorigin="anonymous"></script>
+</body>
+
+</html>

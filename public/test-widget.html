@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uji Coba Chat Widget Laravel</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background-color: #1e293b;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+        }
+        
+        .content {
+            padding: 50px;
+            text-align: center;
+            color: #2d4b76;
+        }
+        
+        .content h2 {
+            margin-bottom: 20px;
+        }
+        
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Diskominfo Kota Bandung</h1>
+    </div>
+
+    <div class="content">
+        <!-- <h2>Selamat Datang!</h2> -->
+        <p>
+            Ini adalah contoh halaman website eksternal bandung.go.id
+        </p>
+        <p style="margin-top: 30px; font-weight: bold; color: #0a3663;">
+            Tombol Uji Chat Widget berada di kanan bawah halaman ini. Silakan klik untuk mencoba fitur chat.
+        </p>
+    </div>
+
+    <!-- 
+        Karena file HTML ini diletakkan di dalam folder public/, 
+        kita bisa memanggil widget.js langsung seperti ini.
+        Jika di web aslinya nanti, ganti dengan URL lengkap seperti:
+        <script src="http://domain-anda.com/widget.js"></script>
+    -->
+    <script src="widget.js"></script>
+
+</body>
+</html>

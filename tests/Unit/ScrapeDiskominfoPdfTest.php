@@ -1,0 +1,60 @@
+<?php
+
+namespace Tests\Unit;
+
+use App\Console\Commands\ScrapeDiskominfo;
+use ReflectionMethod;
+use Tests\TestCase;
+
+class ScrapeDiskominfoPdfTest extends TestCase
+{
+    public function test_pdf_text_can_be_extracted(): void
+    {
+        $command = new ScrapeDiskominfo();
+        $method = new ReflectionMethod($command, 'pdfText');
+        $method->setAccessible(true);
+
+        $pdf = <<<'PDF'
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 300 144] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 44 >>
+stream
+BT
+/F1 24 Tf
+50 50 Td
+(Test PDF) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000010 00000 n 
+0000000062 00000 n 
+0000000123 00000 n 
+0000000245 00000 n 
+0000000567 00000 n 
+trailer
+<< /Root 1 0 R /Size 6 >>
+startxref
+650
+%%EOF
+PDF;
+
+        $text = $method->invoke($command, $pdf);
+
+        $this->assertStringContainsString('Test PDF', $text);
+    }
+}
